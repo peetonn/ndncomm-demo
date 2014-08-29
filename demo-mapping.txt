@@ -1,0 +1,16 @@
+# this file contains mappings between nodes in demo scenario
+# and real ip addresses (or names)
+# (names for testbed hubs can be retrieved by hubs.py script and 
+# /etc/hosts updated correspondingly)
+# this file should be processed by setup-demo.py
+
+# node name 	ip or machine name 
+
+NFD1	ndn.aleph
+NFD2	ndn.caida
+NFD3	ndn.arizona
+DEMO1	131.179.141.45
+DEMO2	131.179.141.46
+PRODUCER_NFD1	131.179.141.44
+PRODUCER1_NFD2	131.179.141.42
+PRODUCER2_NFD2	131.179.141.43
