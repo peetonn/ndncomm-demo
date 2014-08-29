@@ -8,11 +8,11 @@ CFGNAME="ndnrtc.cfg"
 RUNDIR="../ndnrtc-archive"
 APPNAME="ndnrtc-demo"
 
-HDCOMM_DIR="producer-ndncomm"
-REMAP1_DIR="producer-remap1"
-REMAP2_DIR="producer-remap2"
-DEMO1_DIR="producer-demo1"
-DEMO2_DIR="producer-demo2"
+HDCOMM_DIR="ndncomm"
+REMAP1_DIR="remap1"
+REMAP2_DIR="remap2"
+DEMO1_DIR="demo1"
+DEMO2_DIR="demo2"
 
 function assert_dir_access { 
 	fail=0
