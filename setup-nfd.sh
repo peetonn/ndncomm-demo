@@ -27,9 +27,9 @@ PROD_NFD21_IP="131.179.141.42"
 # remap2 ip address
 PROD_NFD22_IP="131.179.141.43"
 # demo 1
-PROD_NFD31_IP="131.179.141.45"
+PROD_NFD31_IP="128.97.151.90"
 # demo 2
-PROD_NFD32_IP="131.179.141.46"
+PROD_NFD32_IP="128.97.151.93"
 
 PROD_NFD1="ndncomm"		# NFD-1 producer (NDN-Comm) producer username (in NDN-RTC)
 PROD_NFD21="remap1"		# NFD-2 producer 1 (remap-1) username
@@ -281,7 +281,9 @@ function setupDemo2()
 # NOTE: should be executed on NFD-3
 function linkDown()
 {
-	nfdc destroy "udp://${NFD2_IP}"
+	c="nfdc destroy udp://${NFD2_IP}"
+	# echo $c
+	eval $c
 }
 
 # restores connection b/w NFD-3 and NFD-2
@@ -289,17 +291,37 @@ function linkDown()
 function linkUp()
 {
 	# register producer-1 on nfd-2
-	c1="registerPrefix $PROD_NFD21_PREFIX $NFD2_IP 1"
+	# c1="registerPrefix $PROD_NFD21_PREFIX $NFD2_IP 1"
 
-	# register producer-2 on nfd-2
-	c2="registerPrefix $PROD_NFD22_PREFIX $NFD2_IP 1"
+	# # register producer-2 on nfd-2
+	# c2="registerPrefix $PROD_NFD22_PREFIX $NFD2_IP 1"
 	
-	# register producer ndncomm on nfd-2
-	c3="registerPrefix $PROD_NFD1_PREFIX $NFD2_IP 2"
+	# # register producer ndncomm on nfd-2
+	# c3="registerPrefix $PROD_NFD1_PREFIX $NFD2_IP 2"
+
+	# register caida on nfd-2 (UA)
+	# costs are taken from arizona's NFD status page
+	c1="registerPrefix /ndn/org/caida $NFD2_IP 2500"
+
+	# register producer remap on nfd-2 (UA)
+	c2="registerPrefix /ndn/edu/ucla/remap $NFD2_IP 2900"
+
+	# echo $c1
+	# echo $c2
 
 	eval $c1
 	eval $c2
-	eval $c3
+}
+
+function breakSim()
+{
+	local timeout=$1
+	while [ 1 ]; do
+		linkDown
+		sleep $timeout
+		linkUp
+		sleep $timeout
+	done;
 }
 
 case "$1" in
@@ -334,7 +356,11 @@ case "$1" in
         demo2)
             setupDemo2
             ;;      
-            
+        
+        sim)
+			breakSim 3
+        	;;   
+
         down)
 			linkDown
             ;;     

@@ -125,22 +125,22 @@ if __name__ == '__main__':
 	setVarsBash(variables, "setup-nfd.sh", hubsArray)
 
 	# set prefixes in configuration files
-	cfgFile = 'producer-ndncomm/ndnrtc.cfg'
+	cfgFile = 'ndncomm/ndnrtc.cfg'
 	variables['ndn_prefix']=variables['NFD1_PREFIX']
 	updateCfg(variables, cfgFile, hubsArray)
 
-	cfgFile = 'producer-remap1/ndnrtc.cfg'
+	cfgFile = 'remap1/ndnrtc.cfg'
 	variables['ndn_prefix']=variables['NFD2_PREFIX']
 	updateCfg(variables, cfgFile, hubsArray)
 
-	cfgFile = 'producer-remap2/ndnrtc.cfg'
+	cfgFile = 'remap2/ndnrtc.cfg'
 	variables['ndn_prefix']=variables['NFD2_PREFIX']
 	updateCfg(variables, cfgFile, hubsArray)
 
-	cfgFile = 'producer-demo1/ndnrtc.cfg'
+	cfgFile = 'demo1/ndnrtc.cfg'
 	variables['ndn_prefix']=variables['NFD3_PREFIX']
 	updateCfg(variables, cfgFile, hubsArray)
 
-	cfgFile = 'producer-demo2/ndnrtc.cfg'
+	cfgFile = 'demo2/ndnrtc.cfg'
 	variables['ndn_prefix']=variables['NFD3_PREFIX']
 	updateCfg(variables, cfgFile, hubsArray)
