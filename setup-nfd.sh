@@ -358,7 +358,7 @@ case "$1" in
             ;;      
         
         sim)
-			breakSim 3
+			breakSim 60
         	;;   
 
         down)
