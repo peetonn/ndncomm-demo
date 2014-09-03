@@ -21,15 +21,15 @@ NFD2_PREFIX="/ndn/org/caida"
 NFD3_IP="128.196.203.36" # ndn.arizona
 NFD3_PREFIX="/ndn/edu/arizona"
 # ndncomm ip address
-PROD_NFD1_IP="131.179.141.44"
+PROD_NFD1_IP="131.179.142.10"
 # remap1 ip address
 PROD_NFD21_IP="131.179.141.42"
 # remap2 ip address
 PROD_NFD22_IP="131.179.141.43"
 # demo 1
-PROD_NFD31_IP="128.97.151.90"
+PROD_NFD31_IP="131.179.142.11"
 # demo 2
-PROD_NFD32_IP="128.97.151.93"
+PROD_NFD32_IP="131.179.142.12"
 
 PROD_NFD1="ndncomm"		# NFD-1 producer (NDN-Comm) producer username (in NDN-RTC)
 PROD_NFD21="remap1"		# NFD-2 producer 1 (remap-1) username
