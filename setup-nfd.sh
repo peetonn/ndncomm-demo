@@ -12,8 +12,8 @@
 
 # TESTBED configuration
 # nfd1 
-NFD1_IP="128.97.98.7" # ndn.aleph
-NFD1_PREFIX="/ndn/edu/ucla/remap"
+NFD1_IP="128.195.4.36" # ndn.uci
+NFD1_PREFIX="/ndn/edu/uci"
 # nfd2 
 NFD2_IP="192.172.226.248" # ndn.caida
 NFD2_PREFIX="/ndn/org/caida"
@@ -232,7 +232,8 @@ function setupDemo1()
 	# producer-2
 	c3="registerPrefix $PROD_NFD22_PREFIX $NFD3_IP 0"	
 	# demo-2
-	c4="registerPrefix $PROD_NFD32_PREFIX $NFD3_IP 0"		
+	# c4="registerPrefix $PROD_NFD32_PREFIX $NFD3_IP 0"
+	c4="registerPrefix $PROD_NFD32_PREFIX $PROD_NFD32_IP 0"
 	
 	# echo $c1
 	# echo $c2
@@ -262,7 +263,8 @@ function setupDemo2()
 	# producer-2
 	c3="registerPrefix $PROD_NFD22_PREFIX $NFD3_IP 0"	
 	# demo-2
-	c4="registerPrefix $PROD_NFD31_PREFIX $NFD3_IP 0"		
+	# c4="registerPrefix $PROD_NFD31_PREFIX $NFD3_IP 0"		
+	c4="registerPrefix $PROD_NFD31_PREFIX $PROD_NFD31_IP 0"
 	
 	# echo $c1
 	# echo $c2
