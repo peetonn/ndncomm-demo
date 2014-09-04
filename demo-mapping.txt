@@ -6,7 +6,7 @@
 
 # node name 	ip or machine name 
 
-NFD1	ndn.uci
+NFD1	ndn.aleph
 NFD2	ndn.caida
 NFD3	ndn.arizona
 DEMO1	131.179.142.11

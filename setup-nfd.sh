@@ -12,8 +12,8 @@
 
 # TESTBED configuration
 # nfd1 
-NFD1_IP="128.195.4.36" # ndn.uci
-NFD1_PREFIX="/ndn/edu/uci"
+NFD1_IP="128.97.98.7" # ndn.aleph
+NFD1_PREFIX="/ndn/edu/ucla/remap"
 # nfd2 
 NFD2_IP="192.172.226.248" # ndn.caida
 NFD2_PREFIX="/ndn/org/caida"
@@ -283,36 +283,20 @@ function setupDemo2()
 # NOTE: should be executed on NFD-3
 function linkDown()
 {
-	c="nfdc destroy udp://${NFD2_IP}"
+	c="nfdc register -o 128 -e 1200000 -c 10000  /ndn/org/caida udp://${NFD2_IP}"
+	
 	# echo $c
-	eval $c
+	#eval $c
 }
 
 # restores connection b/w NFD-3 and NFD-2
 # NOTE: should be executed on NFD-3
 function linkUp()
 {
-	# register producer-1 on nfd-2
-	# c1="registerPrefix $PROD_NFD21_PREFIX $NFD2_IP 1"
+	c="nfdc register -o 128 -e 1200000 -c 2500  /ndn/org/caida udp://${NFD2_IP}"
 
-	# # register producer-2 on nfd-2
-	# c2="registerPrefix $PROD_NFD22_PREFIX $NFD2_IP 1"
-	
-	# # register producer ndncomm on nfd-2
-	# c3="registerPrefix $PROD_NFD1_PREFIX $NFD2_IP 2"
-
-	# register caida on nfd-2 (UA)
-	# costs are taken from arizona's NFD status page
-	c1="registerPrefix /ndn/org/caida $NFD2_IP 2500"
-
-	# register producer remap on nfd-2 (UA)
-	c2="registerPrefix /ndn/edu/ucla/remap $NFD2_IP 2900"
-
-	# echo $c1
-	# echo $c2
-
-	eval $c1
-	eval $c2
+	# echo $c
+	eval $c
 }
 
 function breakSim()
@@ -360,7 +344,7 @@ case "$1" in
             ;;      
         
         sim)
-			breakSim 60
+			breakSim 300
         	;;   
 
         down)
